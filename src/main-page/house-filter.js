@@ -1,4 +1,4 @@
-import { useNavigate, useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import HousesContext from "../contexts/housesContext";
 

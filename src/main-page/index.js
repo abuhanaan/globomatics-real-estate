@@ -1,4 +1,5 @@
-import { useEffect, useState, useMemo } from "react";
+import useHouses from "../hooks/useHouses";
+import useFeaturedHouses from "../hooks/useFeaturedHouses";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import Header from "./header";
 import "./main-page.css";
@@ -8,24 +9,8 @@ import HouseFilter from "./house-filter";
 import HouseFromQuery from "../house/HouseFromQuery";
 
 function App() {
-  const [allHouses, setAllHouses] = useState([]);
-  useEffect(() => {
-    const fetchHouses = async () => {
-      const rsp = await fetch("./houses.json");
-      const houses = await rsp.json();
-      setAllHouses(houses);
-    };
-    fetchHouses();
-  }, []);
-
-  // useMemo either sets the value cached initally to featuredHouse or the value
-  // returned from the function call below which only gets fired when the value of allHouses changes
-  const featuredHouse = useMemo(() => {
-    if (allHouses.length) {
-      const randomIndex = Math.floor(Math.random() * allHouses.length);
-      return allHouses[randomIndex];
-    }
-  }, [allHouses]);
+  const allHouses = useHouses();
+  const featuredHouse = useFeaturedHouses(allHouses);
 
   return (
     <Router>

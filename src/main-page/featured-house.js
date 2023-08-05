@@ -6,7 +6,7 @@ const FeaturedHouse = ({ house }) => {
     return (
       <div>
         <div className="row featuredHouse">
-          <div className="col-md-12 text-center">Featured House</div>
+          <h3 className="col-md-12 text-center">Featured House</h3>
         </div>
         <House house={house} />
       </div>

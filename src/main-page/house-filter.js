@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useHistory } from "react-router-dom";
 import { useContext } from "react";
 import HousesContext from "../contexts/housesContext";
 
@@ -12,7 +12,7 @@ const HouseFilter = () => {
 
   const onSearchChange = (e) => {
     const country = e.target.value;
-    history.push(`/searchresults/${country}`);
+    history(`/searchresults/${country}`);
   };
 
   return (
@@ -21,10 +21,10 @@ const HouseFilter = () => {
         Look for your dream house in country
       </div>
       <div className="col-md-4 mb-3">
-        <select className="form-select">
+        <select className="form-select" onChange={onSearchChange}>
           {countries.map((c) => {
             return (
-              <option key={c} value={c} onChange={onSearchChange}>
+              <option key={c} value={c}>
                 {c}
               </option>
             );

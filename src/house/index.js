@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./house.css";
 import emailIcon from "./Email.png";
 import Inquiry from "./Inquiry";
+import PropTypes from "prop-types";
 
 const House = ({ house }) => {
   const [inquiryShown, setInquiryShown] = useState(false);
@@ -14,7 +15,7 @@ const House = ({ house }) => {
         <h5 className="col-md-12">{house.country}</h5>
       </div>
       <div className="row">
-        <div className="col-md-12">{house.address}</div>
+        <h3 className="col-md-12">{house.address}</h3>
       </div>
       <div className="row">
         <div className="col-md-7">
@@ -34,6 +35,10 @@ const House = ({ house }) => {
       </div>
     </div>
   );
+};
+
+House.propTypes = {
+  house: PropTypes.object.isRequired,
 };
 
 export default House;

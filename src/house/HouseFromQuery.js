@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import House from ".";
+import House from "./";
 import { useContext } from "react";
 import HousesContext from "../contexts/housesContext";
 

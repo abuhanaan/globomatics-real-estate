@@ -19,19 +19,20 @@ function App() {
         <div className="container">
           <Header subtitle={"Providing Houses All Over the World"} />
           <HouseFilter />
+
+          <Routes>
+            <Route
+              exact
+              path="/"
+              element={<FeaturedHouse house={featuredHouse}></FeaturedHouse>}
+            ></Route>
+            <Route
+              path="/searchresults/:country"
+              element={<SearchResults />}
+            ></Route>
+            <Route path="/house/:id" element={<HouseFromQuery />}></Route>
+          </Routes>
         </div>
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={<FeaturedHouse house={featuredHouse}></FeaturedHouse>}
-          ></Route>
-          <Route
-            path="/searchresults/:country"
-            element={<SearchResults />}
-          ></Route>
-          <Route path="/house/:id" element={<HouseFromQuery />}></Route>
-        </Routes>
       </HousesContext.Provider>
     </Router>
   );
